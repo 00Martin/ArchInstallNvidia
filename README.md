@@ -3,6 +3,7 @@
 This script is my personal Arch Linux install script for Nvidia hardware.
 It is still in works, the script is not complete yet and will NOT work as of now.
 
+
 A little resume of my script:
 
 - Single boot (it must NOT be used for dualbooting, it will erase your disk, you are warned)
@@ -14,7 +15,7 @@ A little resume of my script:
 
 This install needs post, manual work for a fully installed setup.
 It is not documented here because it is where the install becomes personalized to my hardware, and to me. 
-To make simple, starting from now the commands you will be typing will probably be very different from mine.
+
 
 Feel free to use, copy or modify the script as you will.
 I would recommend against executing the file as is, as it is not designed for your specific configuration.
