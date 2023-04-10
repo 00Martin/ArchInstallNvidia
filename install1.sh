@@ -47,10 +47,22 @@ genfstab -U /mnt >> /mnt/etc/fstab
 cat                 /mnt/etc/fstab
 
 
-#Set root fs
-#The script stops there as we change the root fs
-#To lower complexity, we make the user run the next script
-arch-chroot /mnt
+#Download and prepare the next scripts
+curl -LO https://raw.githubusercontent.com/00Martin/ArchInstallNvidia/experimental/install-archchroot.sh
+curl -LO https://raw.githubusercontent.com/00Martin/ArchInstallNvidia/experimental/install2.sh
+#We move the second script to the home folder so it is saved and ready to use on the next reboot
+mv install2.sh /mnt/home
+#We move the archchroot script inside root so we can run it inside the arch chroot environment
+mv install-archchroot.sh /mnt/
+
+#Run the next script inside arch-chroot
+arch-chroot /mnt install-archchroot.sh
+
+#We delete the archchroot file after it was run to keep the install clean,
+rm /mnt/install-archchroot.sh
+
+#Rebooting into our newly installed arch system, the user will have to run the next script which was put into the home folder
+reboot
 
 
 #If partitions are not ready, we stop
