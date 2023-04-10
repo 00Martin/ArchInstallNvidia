@@ -6,6 +6,7 @@ It is still in works, the script is not complete yet and will NOT work as of now
 
 A little resume of my script:
 
+- For UEFI
 - Single boot (it must NOT be used for dualbooting, it will erase your disk, you are warned)
 - No swap
 - System in American English with Swiss french keyboard
