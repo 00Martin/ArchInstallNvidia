@@ -55,11 +55,40 @@ mv install2.sh /mnt/home
 #We move the archchroot script inside root so we can run it inside the arch chroot environment
 mv install-archchroot.sh /mnt/
 
+
+#We will run certain commands that would typically be ran inside of arch-chroot outside to minimize the amount of work inside of arch-chroot
+#Set the locale
+echo "en_US.UTF-8 UTF-8"    >>  /mnt/etc/locale.gen
+echo "LANG=en_US.UTF-8"     >   /mnt/etc/locale.conf
+
+#Set keyboard for the system and Plasma on X11
+echo "KEYMAP=fr_CH"     >   /mnt/etc/vconsole.conf
+echo "XKBLAYOUT=ch"     >>  /mnt/etc/vconsole.conf
+echo "XKBVARIANT=fr"    >>  /mnt/etc/vconsole.conf
+
+
+#set hostname and hosts
+echo "martinpc"                                         >   /mnt/etc/hostname
+echo "127.0.0.1       localhost"                        >>  /mnt/etc/hosts
+echo "::1             localhost"                        >>  /mnt/etc/hosts
+echo "127.0.0.1       martinpc.localdomain    martinpc" >>  /mnt/etc/hosts
+
+
 #Run the next script inside arch-chroot
-#arch-chroot /mnt install-archchroot.sh
+arch-chroot /mnt install-archchroot.sh
 
 #We delete the archchroot file after it was run to keep the install clean,
 rm /mnt/install-archchroot.sh
+
+
+#BOOTLOADER: Systemd + config
+echo "default arch"                 >>  /mnt/boot/loader/loader.conf
+touch /mnt/boot/loader/entries/arch.conf
+echo "title Arch Linux"             >   /mnt/boot/loader/entries/arch.conf
+echo "linux /vmlinuz-linux"         >>  /mnt/boot/loader/entries/arch.conf
+echo "initrd /initramfs-linux.img"  >>  /mnt/boot/loader/entries/arch.conf
+echo "options root=/dev/sda2 rw"    >>  /mnt/boot/loader/entries/arch.conf
+
 
 #Rebooting into our newly installed arch system, the user will have to run the next script which was put into the home folder
 #reboot
