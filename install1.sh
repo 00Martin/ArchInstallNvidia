@@ -53,7 +53,7 @@ curl -LO raw.githubusercontent.com/00Martin/ArchInstallNvidia/experimental/insta
 #We move the second script to the home folder so it is saved and ready to use on the next reboot
 mv install2.sh /mnt/home
 #We move the archchroot script inside root so we can run it inside the arch chroot environment
-mv install-archchroot.sh /mnt/
+mv install-archchroot.sh /mnt
 
 
 #We will run certain commands that would typically be ran inside of arch-chroot outside to minimize the amount of work inside of arch-chroot
