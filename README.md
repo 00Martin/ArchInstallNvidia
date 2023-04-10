@@ -20,9 +20,9 @@ It is not documented here because it is where the install becomes personalized t
 
 
 HOW TO USE :
---> You only need to download install1.sh, the others will be downloaded automatically in the home folder.
---> When the system reboots, run the next installX.sh script (the other files with specific names are ran automatically).
---> That's all, if manual work is required, it'll be documented during the process.
+--> You only need to download install1.sh, the other files will be downloaded automatically to the home folder.
+--> When the system reboots, go to your home folder and run the next install(number).sh script.
+--> If any manual work is required during the execution, it'll be documented.
 
 
 Feel free to use, copy or modify the script as you will.
