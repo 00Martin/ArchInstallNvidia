@@ -15,3 +15,9 @@ A little resume of my script:
 This install needs post, manual work for a fully installed setup.
 It is not documented here because it is where the install becomes personalized to my hardware, and to me. 
 To make simple, starting from now the commands you will be typing will probably be very different from mine.
+
+Feel free to use, copy or modify the script as you will.
+I would recommend against executing the file as is, as it is not designed for your specific configuration.
+
+DISCLAIMER:
+When you use, copy or modify any part of this script, you accept in good faith to be 100% responsible to what happens to your computer, and this even if the source file was not working as intended.
