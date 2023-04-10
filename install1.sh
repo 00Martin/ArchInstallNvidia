@@ -12,15 +12,9 @@ echo -e "sda1 - boot efi, under 4GB, typically 512MB-2GB, 2GB recommended to all
 echo "Have you done this ? [n/Y]"
 read answer
 
-#If partitions are not ready, we stop
-if [ $answer != "Y" || $answer ]; then
-
-echo -e "\nPlease create your partitions and start the script again\n"
-
 
 #If the partitions are ready, we continue
-else
-
+if [ $answer == "Y" ]; then
 
 #Set the keyboard as the user will have to change the root password
 loadkeys fr_CH-latin1
@@ -58,4 +52,8 @@ cat                 /mnt/etc/fstab
 #To lower complexity, we make the user run the next script
 arch-chroot /mnt
 
+
+#If partitions are not ready, we stop
+else
+echo -e "\nPlease create your partitions and start the script again\n"
 fi
