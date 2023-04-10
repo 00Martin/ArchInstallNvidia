@@ -48,8 +48,8 @@ cat                 /mnt/etc/fstab
 
 
 #Download and prepare the next scripts
-curl -LO https://raw.githubusercontent.com/00Martin/ArchInstallNvidia/experimental/install-archchroot.sh
-curl -LO https://raw.githubusercontent.com/00Martin/ArchInstallNvidia/experimental/install2.sh
+curl -LO raw.githubusercontent.com/00Martin/ArchInstallNvidia/experimental/install-archchroot.sh
+curl -LO raw.githubusercontent.com/00Martin/ArchInstallNvidia/experimental/install2.sh
 #We move the second script to the home folder so it is saved and ready to use on the next reboot
 mv install2.sh /mnt/home
 #We move the archchroot script inside root so we can run it inside the arch chroot environment
