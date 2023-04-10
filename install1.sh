@@ -62,7 +62,7 @@ arch-chroot /mnt install-archchroot.sh
 rm /mnt/install-archchroot.sh
 
 #Rebooting into our newly installed arch system, the user will have to run the next script which was put into the home folder
-reboot
+#reboot
 
 
 #If partitions are not ready, we stop
