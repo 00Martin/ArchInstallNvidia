@@ -1,4 +1,6 @@
 #!/bin/sh
+#ArchInstallNvidia by MD^ (Martin)
+#file: install1.sh
 #v1.0
 
 #To simply the script, we will ask the user to create the partitions first
@@ -14,7 +16,6 @@ read answer
 if [ $answer == "Y" ]; then
 
 
-
 #Set the keyboard as the user will have to change the root password
 loadkeys fr_CH-latin1
 
@@ -28,12 +29,12 @@ timedatectl set-ntp true
 
 
 #Set disk filesystem for boot and system
-mkfs.fat -F32 /dev/sda1
-mkfs.btrfs -L ArchSystem /dev/sda2
+mkfs.fat    -F32                /dev/sda1
+mkfs.btrfs  -L ArchSystem       /dev/sda2
 
 #we mount these partitions
 mount /dev/sda2 /mnt
-mkdir /mnt/boot
+mkdir           /mnt/boot
 mount /dev/sda1 /mnt/boot
 
 
@@ -43,14 +44,13 @@ pacstrap /mnt base linux linux-firmware nano
 
 #System mount points
 genfstab -U /mnt >> /mnt/etc/fstab
-cat /mnt/etc/fstab
+cat                 /mnt/etc/fstab
 
 
 #Set root fs
 #The script stops there as we change the root fs
 #To lower complexity, we make the user run the next script
 arch-chroot /mnt
-
 
 
 #The partitions are not ready, we stop
