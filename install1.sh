@@ -13,7 +13,7 @@ echo "Have you done this ? [n/Y]"
 read answer
 
 #If partitions are not ready, we stop
-if [ $answer != "Y" || -z "${answer}" ]; then
+if [ $answer != "Y" || $answer ]; then
 
 echo -e "\nPlease create your partitions and start the script again\n"
 
