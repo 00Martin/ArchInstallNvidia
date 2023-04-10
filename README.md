@@ -20,8 +20,8 @@ It is not documented here because it is where the install becomes personalized t
 
 
 HOW TO USE :
---> You only need to download the first script, the others will be downloaded automatically in the home folder
---> When the system reboots, run the next script.
+--> You only need to download install1.sh, the others will be downloaded automatically in the home folder
+--> When the system reboots, run the next script. You only need to run installX.sh, the other scripts with specific names are ran automatically
 --> That's all, if manual work is required, it'll be documented during the process.
 
 

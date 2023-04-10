@@ -6,7 +6,7 @@
 #To simply the script, we will ask the user to create the partitions first
 #We assume the user knows how partitions work, and will create them properly as described
 echo -e "\nCreate your partitions first with -> cfdisk /dev/sda\n\nYour partitions must look like this:"
-echo -e "sda1 - boot efi, under 4GB, typically 512MB-2GB, 2GB recommended to allow multiple kernels\nsda2 - system, can fill up the rest of the disk\n\n"
+echo -e "sda1 - boot efi, 2GB recommended to allow multiple kernels TYPE: EFI System\nsda2 - system, can fill up the rest of the disk TYPE: Linux root (x86-64)\n\n"
 
 #We ask the user if the partitions are created
 echo "Have you done this ? [n/Y]"
@@ -18,11 +18,6 @@ if [ $answer == "Y" ]; then
 
 #Set the keyboard as the user will have to change the root password
 loadkeys fr_CH-latin1
-
-#For information only, can help the user debug efi state, disks or network
-ls /sys/firmware/efi/efivars
-lsblk
-ping -c 4 archlinux.org
 
 #For time synchronization
 timedatectl set-ntp true
@@ -37,10 +32,8 @@ mount /dev/sda2 /mnt
 mkdir           /mnt/boot
 mount /dev/sda1 /mnt/boot
 
-
 #Getting Linux installed
 pacstrap /mnt base linux linux-firmware nano
-
 
 #System mount points
 genfstab -U /mnt >> /mnt/etc/fstab
@@ -52,21 +45,19 @@ curl -LO raw.githubusercontent.com/00Martin/ArchInstallNvidia/experimental/insta
 curl -LO raw.githubusercontent.com/00Martin/ArchInstallNvidia/experimental/install2.sh
 #We move the second script to the home folder so it is saved and ready to use on the next reboot
 mv install2.sh /mnt/home
-#We move the archchroot script inside root so we can run it inside the arch chroot environment
+#We move the archchroot script inside root so we can run it with the arch chroot command
 mv install-archchroot.sh /mnt
 
 
-#We will run certain commands that would typically be ran inside of arch-chroot outside to minimize the amount of work inside of arch-chroot
+#We run certain commands that would typically be ran inside of arch-chroot here.
+#We do this as certain commands can cause issues when ran directly through arch-chroot
 #Set the locale
 echo "en_US.UTF-8 UTF-8"    >>  /mnt/etc/locale.gen
 echo "LANG=en_US.UTF-8"     >   /mnt/etc/locale.conf
-
 #Set keyboard for the system and Plasma on X11
 echo "KEYMAP=fr_CH"     >   /mnt/etc/vconsole.conf
 echo "XKBLAYOUT=ch"     >>  /mnt/etc/vconsole.conf
 echo "XKBVARIANT=fr"    >>  /mnt/etc/vconsole.conf
-
-
 #set hostname and hosts
 echo "martinpc"                                         >   /mnt/etc/hostname
 echo "127.0.0.1       localhost"                        >>  /mnt/etc/hosts
@@ -74,14 +65,15 @@ echo "::1             localhost"                        >>  /mnt/etc/hosts
 echo "127.0.0.1       martinpc.localdomain    martinpc" >>  /mnt/etc/hosts
 
 
-#Run the next script inside arch-chroot
+#Run the archchroot script inside arch-chroot
 arch-chroot /mnt sh install-archchroot.sh
 
-#We delete the archchroot file after it was run to keep the install clean,
+#We delete the archchroot file after it was ran to keep the install clean
 rm /mnt/install-archchroot.sh
 
 
-#BOOTLOADER: Systemd + config
+#BOOTLOADER: config
+#We created the systemd bootloader files in the archchroot script, we now need to configure the bootloader
 echo "default arch"                 >>  /mnt/boot/loader/loader.conf
 touch /mnt/boot/loader/entries/arch.conf
 echo "title Arch Linux"             >   /mnt/boot/loader/entries/arch.conf
@@ -91,8 +83,7 @@ echo "options root=/dev/sda2 rw"    >>  /mnt/boot/loader/entries/arch.conf
 
 
 #Rebooting into our newly installed arch system, the user will have to run the next script which was put into the home folder
-#reboot
-
+reboot
 
 #If partitions are not ready, we stop
 else
