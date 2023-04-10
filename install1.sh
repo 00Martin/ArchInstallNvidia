@@ -1,5 +1,5 @@
 #!/bin/sh
-#v0.2e
+#v1.0
 
 #To simply the script, we will ask the user to create the partitions first
 #We assume the user knows how partitions work, and will create them properly as described
@@ -12,6 +12,7 @@ read answer
 
 #If the partitions are ready, we continue
 if [ $answer == "Y" ]; then
+
 
 
 #Set the keyboard as the user will have to change the root password
@@ -46,37 +47,9 @@ cat /mnt/etc/fstab
 
 
 #Set root fs
+#The script stops there as we change the root fs
+#To lower complexity, we make the user run the next script
 arch-chroot /mnt
-
-#Set time zone to Switzerland
-ln -sf /usr/share/zoneinfo/Europe/Zurich /etc/localtime
-
-#Sychronize clocks
-hwclock --systohc
-
-
-#Set the locale
-echo "en_US.UTF-8 UTF-8" >> /etc/locale.gen
-locale-gen
-echo "LANG=en_US.UTF-8" > /etc/locale.conf
-
-#Set keyboard for the system and Plasma on X11
-echo "KEYMAP=fr_CH" > /etc/vconsole.conf
-echo "XKBLAYOUT=ch" >> /etc/vconsole.conf
-echo "XKBVARIANT=fr" >> /etc/vconsole.conf
-
-
-#set hostname and hosts
-echo "martinpc" > /etc/hostname
-
-
-
-
-
-
-
-
-
 
 
 
