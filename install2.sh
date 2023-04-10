@@ -1,7 +1,7 @@
 #!/bin/sh
 #ArchInstallNvidia by MD^ (Martin)
 #file: install2.sh
-#v1.0
+#v1.0e
 
 #Set time zone to Switzerland
 ln -sf /usr/share/zoneinfo/Europe/Zurich /etc/localtime
