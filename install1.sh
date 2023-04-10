@@ -75,7 +75,7 @@ echo "127.0.0.1       martinpc.localdomain    martinpc" >>  /mnt/etc/hosts
 
 
 #Run the next script inside arch-chroot
-arch-chroot /mnt install-archchroot.sh
+arch-chroot /mnt sh install-archchroot.sh
 
 #We delete the archchroot file after it was run to keep the install clean,
 rm /mnt/install-archchroot.sh
