@@ -1,7 +1,7 @@
 #!/bin/sh
 #ArchInstallNvidia by MD^ (Martin)
 #file: install1.sh
-#v1.0
+#v1.0 - 04.15.2023 - latest change: first release
 
 #To simply the script, we will ask the user to create the partitions first
 #We assume the user knows how partitions work, and will create them properly as described
@@ -42,8 +42,8 @@ cat                 /mnt/etc/fstab
 
 
 #Download and prepare the next scripts
-curl -LO raw.githubusercontent.com/00Martin/ArchInstallNvidia/experimental/install-archchroot.sh
-curl -LO raw.githubusercontent.com/00Martin/ArchInstallNvidia/experimental/install2.sh
+curl -LO raw.githubusercontent.com/00Martin/ArchInstallNvidia/main/install-archchroot.sh
+curl -LO raw.githubusercontent.com/00Martin/ArchInstallNvidia/main/install2.sh
 #We move the second script to the home folder so it is saved and ready to use on the next reboot
 mv install2.sh /mnt/home
 #We move the archchroot script inside root so we can run it with the arch chroot command
