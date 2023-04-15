@@ -6,7 +6,8 @@
 #To simply the script, we will ask the user to create the partitions first
 #We assume the user knows how partitions work, and will create them properly as described
 echo -e "\nCreate your partitions first with -> cfdisk /dev/sda\n\nYour partitions must look like this:"
-echo -e "sda1 - boot efi, 2GB recommended to allow multiple kernels TYPE: EFI System\nsda2 - system, can fill up the rest of the disk TYPE: Linux root (x86-64)\n\n"
+echo -e "sda1 - boot efi, 2GB recommended to allow multiple kernels TYPE: EFI System\nsda2 - system, can fill up the rest of the disk TYPE: Linux root (x86-64)\n"
+echo -e "It is very important to properly precise the type of the partition or it might create errors when formatting with a filesystem\n\n"
 
 #We ask the user if the partitions are created
 echo "Have you done this ? [n/Y]"
