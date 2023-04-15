@@ -44,7 +44,7 @@ systemctl enable bluetooth.service
 
 
 #Some manual intervention required from the user
-echo -e "\n\nWe need to add our new user to the sudoer file, to do this ->\nUse the following command: EDITOR=nano visudo\nAdd this line with the correct username under the user privilege specification: NAMEOFUSER ALL=(ALL) ALL"
+echo -e "\n\nATTENTION REQUIRED\nWe need to add our new user to the sudoer file, to do this ->\nUse the following command: EDITOR=nano visudo\nAdd this line with the correct username under the user privilege specification: NAMEOFUSER ALL=(ALL) ALL"
 
 echo -e "\nOnce this step is done, you can reboot and delete the script from the home folder."
 
