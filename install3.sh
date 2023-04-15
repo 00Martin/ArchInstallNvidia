@@ -11,6 +11,7 @@ clear
 sudo pacman -Sy --noconfirm steam ttf-liberation git base-devel flatpak wine-staging lutris
 
 #Installation of Yay (AUR Helper)
+cd ~/Documents/
 git clone https://aur.archlinux.org/yay.git
 cd yay/
 makepkg -si
