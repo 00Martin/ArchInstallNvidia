@@ -14,7 +14,7 @@ sudo pacman -Sy --noconfirm steam ttf-liberation git base-devel flatpak wine-sta
 cd ~/Documents/
 git clone https://aur.archlinux.org/yay.git
 cd yay/
-makepkg -si
+makepkg -si --noconfirm
 cd..
 rm -rf yay
 
