@@ -1,7 +1,7 @@
 #!/bin/sh
 #ArchInstallNvidia by MD^ (Martin)
 #file: install1.sh
-#v1.0e
+#v1.0
 
 #To simply the script, we will ask the user to create the partitions first
 #We assume the user knows how partitions work, and will create them properly as described
