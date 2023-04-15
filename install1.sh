@@ -44,8 +44,10 @@ cat                 /mnt/etc/fstab
 #Download and prepare the next scripts
 curl -LO raw.githubusercontent.com/00Martin/ArchInstallNvidia/main/install-archchroot.sh
 curl -LO raw.githubusercontent.com/00Martin/ArchInstallNvidia/main/install2.sh
-#We move the second script to the home folder so it is saved and ready to use on the next reboot
+curl -LO raw.githubusercontent.com/00Martin/ArchInstallNvidia/main/install3.sh
+#We move the scripts to the home folder so it is saved and ready to use on the next reboot
 mv install2.sh /mnt/home
+mv install3.sh /mnt/home
 #We move the archchroot script inside root so we can run it with the arch chroot command
 mv install-archchroot.sh /mnt
 
