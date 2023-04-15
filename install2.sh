@@ -27,8 +27,9 @@ read username
 useradd -m $username
 passwd $username
 
-#We update all packages
+#We update all packages and download sudo
 pacman -Syu
+pacman -S --noconfirm sudo
 
 #We install the nvidia drivers for a standard kernel release and some basic libraries (the rest will be downloaded with the --needed parameter)
 pacman -S --needed --noconfirm nvidia lib32-nvidia-utils nvidia-settings vulkan-icd-loader lib32-vulkan-icd-loader
