@@ -4,7 +4,7 @@
 #v1.0 - 04.15.2023 - latest change: first release
 
 #Auto clean, we remove the previous script
-sudo rm ../install2.sh
+sudo rm /home/install2.sh
 clear
 
 #We install some useful (and gaming) packages
