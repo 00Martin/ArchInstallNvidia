@@ -31,10 +31,10 @@ passwd $username
 pacman -Syu
 
 #We install the nvidia drivers for a standard kernel release and some basic libraries (the rest will be downloaded with the --needed parameter)
-pacman -S --needed nvidia lib32-nvidia-utils nvidia-settings vulkan-icd-loader lib32-vulkan-icd-loader
+pacman -S --needed --noconfirm nvidia lib32-nvidia-utils nvidia-settings vulkan-icd-loader lib32-vulkan-icd-loader
 
 #We install everything needed for KDE Plasma, with a limited set of applications
-pacman -S xorg plasma sddm bluedevil konsole dolphin kcron ksystemlog partitionmanager ark okular kate kompare gwenview ktorrent kalendar kcalc elisa
+pacman -S --noconfirm xorg plasma sddm bluedevil konsole dolphin kcron ksystemlog partitionmanager ark okular kate kompare gwenview ktorrent kalendar kcalc elisa
 
 #We enable some services on boot for the user to have a fully working system out of the box
 systemctl enable sddm.service
