@@ -30,7 +30,7 @@ read answer
 if [ $answer == "Y" ]; then
 echo -e "\n\nEnter the IP of the DNS server (format x.x.x.x)\nThis script does not verify if the IP format is valid, so make sure to enter it properly."
 read customdns
-sudo sh -c "echo "static domain_name_servers=$customdns" >> /etc/dhcpcd.conf"
+sudo sh -c "echo 'static domain_name_servers=$customdns' >> /etc/dhcpcd.conf"
 fi
 
 #While not necessary, we reboot to apply the new keyboard and dns config
