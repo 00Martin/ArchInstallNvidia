@@ -22,8 +22,8 @@ Keep in mind that with this kind of install you could encounter issues specific 
 
 HOW TO USE :
 --> You only need to download install1.sh, the other files will be downloaded automatically to the home folder.
---> When the system reboots, go to your home folder and run the next install(number).sh script.
---> If any manual work is required, it'll be documented during the execution.
+--> When the system reboots, go to the home folder and run the next install(number).sh script.
+--> If any manual work is required, it'll be documented during the installation.
 
 
 Feel free to use, copy or modify the script as you will.
