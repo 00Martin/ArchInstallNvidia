@@ -1,7 +1,7 @@
 #!/bin/sh
 #ArchInstallNvidia by MD^ (Martin)
 #file: install1.sh
-#v1.0 - 04.15.2023 - latest change: first release
+#v1.0 - 04.15.2023 - latest change: initial release
 
 #To simply the script, we will ask the user to create the partitions first
 #We assume the user knows how partitions work, and will create them properly as described
@@ -88,7 +88,8 @@ echo "options root=/dev/sda2 rw"    >>  /mnt/boot/loader/entries/arch.conf
 #Rebooting into our newly installed arch system, the user will have to run the next script which was put into the home folder
 reboot
 
-#If partitions are not ready, we stop
+
+#If partitions were not ready, we stop
 else
 echo -e "\nPlease create your partitions and start the script again\n"
 fi
