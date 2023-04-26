@@ -30,4 +30,4 @@ Feel free to use, copy or modify the script as you will.
 I would recommend against executing the file as is since it is designed for my configuration.
 
 DISCLAIMER:
-When you use, copy or modify any part of this script, you accept in good faith to be 100% responsible to what happens to your computer, and this even if the source file was not working as intended.
+When you use, copy or modify any part of this script, you accept in good faith to be fully responsible to what happens to your computer (or whichever device you were using it with), and this even if the source file was not working as intended.
