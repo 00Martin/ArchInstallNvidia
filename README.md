@@ -2,6 +2,9 @@
 
 PLEASE READ ENTIRELY
 
+NO LONGER UPDATED, PLEASE CHECK OUT MY MAIN INSTALL SCRIPT:
+https://github.com/00Martin/ArchInstall
+
 This script is my personal Arch Linux install script for Nvidia hardware.
 
 A little resume of what my script does:
